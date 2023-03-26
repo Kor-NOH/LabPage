@@ -7,20 +7,20 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 
 
-class Main(APIView):
+class Index(APIView):
     def get(self, request):
 
         id = request.session.get('id', None)
 
         if id is None:
-            return render(request, "swlab/unknow_user_main.html")
+            return render(request, "swlab/unknow_user_index.html")
 
         user = User.objects.filter(id=id).first()
 
         if user is None:
-            return render(request, "swlab/unknow_user_main.html")
+            return render(request, "swlab/unknow_user_index.html")
 
-        return render(request, "swlab/main.html", context=dict(user=user))
+        return render(request, "swlab/index.html", context=dict(user=user))
 
 
 class Register(APIView):
@@ -33,7 +33,7 @@ class Register(APIView):
         pw = request.data.get('pw', None)
         pw_again = request.data.get('pw_again', None)
         phonenum = request.data.get('phonenum', None)
-        age = request.data.get('age', None)
+        schoolssn = request.data.get('schoolssn', None)
         try:
             # 이름(실명) 입력이 공백일 때
             if name == '':
@@ -51,9 +51,9 @@ class Register(APIView):
             if pw_again == '':
                 messages.info(request, '비밀번호 확인을 입력해주세요.')
                 return Response(status=400)
-            # 나이 입력이 공백일 때
-            if age == '':
-                messages.info(request, '나이를 입력해주세요.')
+            # 학번 입력이 공백일 때
+            if schoolssn == '':
+                messages.info(request, '학번을 입력해주세요.')
                 return Response(status=400)
             # 전화번호 입력이 공백일 때
             if phonenum == '':
@@ -84,7 +84,7 @@ class Register(APIView):
                             id=id,
                             pw=make_password(pw),
                             phonenum=phonenum,
-                            age=age)
+                            schoolssn=schoolssn)
 
         return Response(status=200)
 
@@ -131,20 +131,20 @@ class Logout(APIView):
         request.session.flush() # 계정 정보 세션 삭제
         return render(request, "swlab/login.html")
 
-class Unknow_user_main(APIView):
+class Unknow_user_index(APIView):
     def get(self, request):
-        return render(request, "swlab/unknow_user_main.html")
+        return render(request, "swlab/unknow_user_index.html")
 
 class Change_pw(APIView):
     def get(self, request):
 
         id = request.session.get('id', None)
         if id is None:
-            return render(request, "swlab/unknow_user_main.html")
+            return render(request, "swlab/unknow_user_index.html")
 
         user = User.objects.filter(id=id).first()
         if user is None:
-            return render(request, "swlab/unknow_user_main.html")
+            return render(request, "swlab/unknow_user_index.html")
 
         return render(request, "swlab/change_pw.html", context=dict(users=user))
 

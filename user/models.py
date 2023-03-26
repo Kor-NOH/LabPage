@@ -1,4 +1,3 @@
-import timestamp as timestamp
 from django.db import models
 
 # Create your models here.

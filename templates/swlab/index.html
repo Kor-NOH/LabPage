@@ -52,24 +52,30 @@
     </div>
 </nav>
 <div style="color: black; padding: 4rem 4rem 6rem 4rem; text-align: center; align-items: center">
-    <h1 style="font-size: 3rem"> Spoclub에 <br/>
+    <h1 style="font-size: 3rem"> SwLab에 <br/>
         오신걸 환영합니다</h1>
-    <p style="font-size: 20px; font-style: italic">이 곳은 무료로 지인들과 운동팀을 만들어 활동 할 수 있는<br/>
-        운동을 즐기는 사람들을 위한 사이트입니다</p>
+    <p style="font-size: 20px; font-style: italic">브라우저를 통해 웹 ssh에 접속할<br/>
+        수 있는 대가대 학생들을 위한 사이트입니다.</p>
+</div>
+
+<div>
+    <button id="sshbtn" onmousemove="colorChange()" onmouseleave="colorReChange()" type="button"
+            style=" border: medium solid blue; background-color: white; border-radius: 50px; width: 200px; height: 100px; margin: auto; display: block; position:relative;">
+        <a style="font-size: 1.5em; solid-color: blue; font-style: italic">ssh 접속하기 </a></button>
 </div>
 </body>
 
 <script>
-    function colorChange1() {
-        var Bcolor = document.getElementById("selectbtn1");
+    function colorChange() {
+        var Bcolor = document.getElementById("sshbtn");
         Bcolor.style.backgroundColor = "skyblue";
         Bcolor.style.color = "black";
     }
 
-    function colorReChange1() {
-        var Bcolor = document.getElementById("selectbtn1");
-        Bcolor.style.backgroundColor = "beige";
-        Bcolor.style.color = "skyblue";
+    function colorReChange() {
+        var Bcolor = document.getElementById("sshbtn");
+        Bcolor.style.backgroundColor = "white";
+        Bcolor.style.color = "black";
     }
 
 </script>

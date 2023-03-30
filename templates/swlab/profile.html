@@ -70,13 +70,13 @@
         <div style="position:relative; top: 50px; text-align: left; line-height: 40px; height: 40px; border: 2px solid black; float: left; width: 50%; border-radius: 10px">
             &nbsp; {{ users.phonenum }}</div>
 
-        <div style="position:relative; top: 70px; text-align: center; line-height: 40px; height: 40px; border: white; float: left; width: 40%"> 나이
+        <div style="position:relative; top: 70px; text-align: center; line-height: 40px; height: 40px; border: white; float: left; width: 40%"> 학번
         </div>
         <div style="position:relative; top: 70px; text-align: left; line-height: 40px; height: 40px; border: 2px solid black; float: left; width: 50%; border-radius: 10px">
-            &nbsp; {{ users.age }}</div>
+            &nbsp; {{ users.schoolssn }}</div>
     </div>
 </div>
-<div style="position: relative; top: 25px; left: 530px;">
+<div style="text-align: center; position: relative; top: 25px;">
     <button id="profilebtn" onclick="location.href='profile'" onmousemove="PcolorChange()" onmouseleave="PcolorReChange()" style="background-color: white; border: medium solid blue; border-radius: 10px">내 정보</button>
     <button id="chpwbtn" onclick="location.href='change_pw'" onmousemove="CcolorChange()" onmouseleave="CcolorReChange()" style="background-color: white; border: medium solid blue; border-radius: 10px">비밀번호 변경</button>
 </div>

@@ -175,7 +175,7 @@ class Change_pw(APIView):
         id = request.session.get('id', None)
         user = User.objects.filter(id=id).first()
 
-        user.pw = newpw
+        user.objects.update(pw=make_password(newpw))
 
         return Response(status=200)
 

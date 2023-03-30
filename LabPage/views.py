@@ -168,9 +168,14 @@ class Change_pw(APIView):
             if chnewpw == '':
                 messages.info(request, '새 비밀번호 확인을 입력해주세요.')
                 return Response(status=400)
-
+        # 키 에러
         except KeyError:
             return Response({'message': "KEY_ERROR"}, status=400)
+
+        id = request.session.get('id', None)
+        user = User.objects.filter(id=id).first()
+
+        user.pw = newpw
 
         return Response(status=200)
 

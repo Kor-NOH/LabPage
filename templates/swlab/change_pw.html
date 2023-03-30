@@ -126,23 +126,20 @@
         $.ajax({
             url: "chnage_pw",
             data: {
-                name : name,
-                id : id,
-                pw : pw,
-                pw_again : pw_again,
-                phonenum : phonenum,
-                schoolssn : schoolssn
+                oldpw : oldpw,
+                newpw : newpw,
+                chnewpw : chnewpw
             },
             method : "POST",
             success: function (data) {
                 console.log("성공");
-                alert("회원가입 성공했습니다. 로그인해주세요.");
-                location.replace('/login');
+                alert("비밀번호변경에 성공했습니다. 로그인해주세요.");
+                location.replace('/change_pw');
 
             },
             error: function (request, status, error) {
                 console.log("에러");
-                location.replace('/register');
+                location.replace('/change_pw');
             },
             complete: function () {
                 console.log("완료");

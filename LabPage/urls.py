@@ -1,6 +1,6 @@
 # from django.contrib import admin
 from django.urls import path
-from .views import Index, Register, Login, Profile, Logout, Unknow_user_index, Change_pw, Addimage
+from .views import Index, Register, Login, Profile, Logout, Unknow_user_index, Change_pw, Addimage, Webssh
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -15,6 +15,7 @@ urlpatterns = [
     path('logout', Logout.as_view()),
     path('unknow_user_index', Unknow_user_index.as_view()),
     path('change_pw', Change_pw.as_view()),
-    path('addimage', Addimage.as_view())
+    path('addimage', Addimage.as_view()),
+    path('webssh', Webssh.as_view())
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)  # media 경로 추가

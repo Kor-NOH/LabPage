@@ -193,3 +193,8 @@ class Addimage(APIView):
         imgfile = Images.objects.all()
 
         return render(request, "swlab/addimage.html", context= {imgfile : imgfile})
+
+
+class Webssh(APIView):
+    def get(self, request):
+        return render(request, "swlab/webssh.html")
